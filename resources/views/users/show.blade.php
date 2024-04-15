@@ -1,40 +1,36 @@
-@extends('layouts.app')
+@extends('layouts.sleek')
+@section('users', 'active')
 
 
 @section('content')
 <div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2> Show User</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
-        </div>
-    </div>
-</div>
+    <div class="col-12">
+        <div class="card card-default">
+            <div class="card-header card-header-border-bottom d-flex justify-content-between">
+                <h2>User Details</h2>
+            </div>
 
-
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Name:</strong>
-            {{ $user->name }}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Email:</strong>
-            {{ $user->email }}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Roles:</strong>
-            @if(!empty($user->getRoleNames()))
-                @foreach($user->getRoleNames() as $v)
-                    <label class="badge badge-success">{{ $v }}</label>
-                @endforeach
-            @endif
+            <div class="card-body">
+                <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747545.png" class="mr-3 img-fluid rounded" style="max-height: 80px; max-width:auto;" alt="Avatar Image">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-2 text-dark">{{ $user->name }}</h5>
+                        <ul class="list-unstyled">
+                            <li class="d-flex mb-1">
+                                <i class="mdi mdi-email mr-1"></i>
+                                <span>{{ $user->email }}</span>
+                            </li>
+                            <li class="d-flex mb-1">
+                                @if(!empty($user->getRoleNames()))
+                                @foreach($user->getRoleNames() as $v)
+                                    <label class="badge badge-success">{{ $v }}</label>
+                                @endforeach
+                                @endif
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+            </div> 
         </div>
     </div>
 </div>
