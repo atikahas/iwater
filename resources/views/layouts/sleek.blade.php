@@ -44,9 +44,15 @@
                             Menu
                         </li>
                         <li class="@yield('home')">
-                            <a class="sidenav-item-link" href="/">
+                            <a class="sidenav-item-link" href="/home">
                                 <i class="mdi mdi-view-dashboard-outline"></i>
                                 <span class="nav-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="@yield('meter')">
+                            <a class="sidenav-item-link" href="{{ route('m.index') }}">
+                                <i class="mdi mdi-speedometer"></i>
+                                <span class="nav-text">Meter</span>
                             </a>
                         </li>
 
